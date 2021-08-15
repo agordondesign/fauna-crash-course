@@ -1,16 +1,18 @@
 
 # Todo Application UI Template
 
-This template is based upon the crash course I created for JAMSTack applications. It's fully responsive and can be used on a variety of devices, it is also agnostic for your preferred Auth, Database or Serverless functions.
+This template is based upon the crash course I created for FaunaDB. It's fully responsive and can be used on a variety of devices, it shows how the basics of FaunaDB including:
 
-
-
-[JAMStack crash course](https://youtu.be/6AjAcyX6nxM)
+- Creating items
+- Deleting items
+- Updating items
+- Using Indexes for querying
 
 
 ## Tech Stack
 
-**Client:** NextJS, Chakra-ui
+**Client:** NextJS, Chakra-ui, SWR
+**Database:** FaunaDB
   
 ## Run Locally
 
@@ -32,11 +34,16 @@ Install dependencies
   yarn
 ```
 
+Copy and add your key
+
+```
+cp .env.local.example .env.local
+// open your .env.local and replace '' with the key from Fauna.
+
+```
+
 Start the server
 
 ```bash
   yarn run dev
 ```
-
-
-  

@@ -8,8 +8,15 @@ import {
     Box,
     Heading
 } from "@chakra-ui/react";
+import useSWR from "swr";
 
 export const CompletedTodos = () => {
+    const fetcher = (...args) => fetch(...args).then(res => res.json())
+    const { data, error } = useSWR('/api/get-completed', fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+  console.log(data);
     return(
         <Box as="section" py="12">
          <Box 
@@ -41,11 +48,13 @@ export const CompletedTodos = () => {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr key="id">
-                            <Td>{"This course"}</Td>
-                            <Td>{"You've finally finished"}</Td>
-                            <Td>{"08/06/2021"}</Td>
+                    {data?.todos?.map((todo) => (
+                            <Tr key={todo.ts}>
+                            <Td>{todo.data.title}</Td>
+                            <Td>{todo.data.note}</Td>
+                            <Td>{new Date(todo.data.updated_at).toLocaleDateString()}</Td>
                         </Tr>
+                        ))}
                     </Tbody>
                 </Table>
             </Box>

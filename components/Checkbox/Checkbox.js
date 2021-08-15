@@ -5,6 +5,7 @@ import {DeleteTodo} from "../Todo/DeleteTodo";
 
 export const ButtonCheckbox = (props) =>{
     const {title, note, value, ...rest} = props;
+    console.log(value)
     const {getCheckboxProps, getInputProps, getLabelProps, state} = useCheckbox(rest);
     return(
         <HStack spacing="4" borderWidth="2px" px="4" py="3" borderRadius="md">
