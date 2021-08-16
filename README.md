@@ -1,5 +1,5 @@
 
-# Todo Application UI Template
+# FaunaDB Crash course
 
 This template is based upon the crash course I created for FaunaDB. It's fully responsive and can be used on a variety of devices, it shows how the basics of FaunaDB including:
 
